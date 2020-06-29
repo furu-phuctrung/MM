@@ -27,7 +27,6 @@ class App extends React.Component {
     if(this.state.input.length < 2){
       alert('Too short string');
     }else{
-      this.setState
       this.setState({encodeResult:<ShannonEncoding input={this.state.input} />})
     }
   }
