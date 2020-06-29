@@ -3,11 +3,6 @@ import {Node,CharNode} from '../utilities/EncodeTree'
 import {Row, Col } from 'react-bootstrap';
 
 export default class HuffmanEncoding extends React.Component{
-    constructor(props){
-        super(props)
-        this.alphabet = this.getAlphabet();
-        this.encodeString = this.getEncodeString();
-    }
     getEncodeString(){
         let input = this.props.input;
         let result = '';
@@ -53,8 +48,12 @@ export default class HuffmanEncoding extends React.Component{
     }
 
     render(){
+        this.alphabet = this.getAlphabet();
+        this.encodeString = this.getEncodeString();
         return <div>
-        <div>Result: {this.encodeString}</div>
+        <h4 className='text-center'>Huffman</h4>
+        <div>Compress Rate: {this.encodeString.length/(this.props.input.length*8)}</div>
+        <h4>{this.encodeString}</h4>
             {this.alphabet.map(a=><Row key={a.char}>
                 <Col>
                     Key: {a.char}
